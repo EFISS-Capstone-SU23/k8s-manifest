@@ -53,6 +53,10 @@ spec:
             secretKeyRef:
               name: productdb-secret
               key: DATABASE_NAME
+        - name: REDIS_HOST
+          value: search-redis
+        - name: REDIS_PORT
+          value: "6379"
         resources:
           limits:
             memory: "128Mi"
@@ -73,3 +77,33 @@ spec:
   - protocol: TCP
     port: 3001
     targetPort: 3001
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-redis
+  labels:
+    app: search-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: search-redis
+  template:
+    metadata:
+      labels:
+        app: search-redis
+    spec:
+      containers:
+      - name: search-redis
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
