@@ -25,6 +25,8 @@ spec:
         envFrom:
         - secretRef:
             name: mail-secret
+        - configmapRef:
+            name: app-config
         resources:
           limits:
             memory: "128Mi"

@@ -29,6 +29,8 @@ spec:
             name: mysql-secret
         - configmapRef:
             name: mysql-config
+        - configmapRef:
+            name: app-config
         resources:
           limits:
             memory: "128Mi"
