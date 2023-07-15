@@ -1,0 +1,7 @@
+namespace: production
+namePrefix: production-
+resources:
+- ../../base
+- namespace.yaml
+patchesStrategicMerge:
+- namespace.yaml
