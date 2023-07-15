@@ -27,13 +27,16 @@ spec:
           value: "mysql.efiss.tech"
         - name: DATABASE_PORT
           value: "3306"
-        - name: DATABASE_USER
-          value: "root"
+        - name: DATABASE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: MYSQL_DATABASE_USERNAME
         - name: DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: efiss-secret
-              key: DATABASE_PASSWORD
+              key: MYSQL_DATABASE_PASSWORD
         resources:
           limits:
             memory: "128Mi"
