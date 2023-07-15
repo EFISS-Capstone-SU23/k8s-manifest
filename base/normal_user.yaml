@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: normal-user
+  labels:
+    app: normal-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: normal-user
+  template:
+    metadata:
+      labels:
+        app: normal-user
+    spec:
+      containers:
+      - name: normal-user
+        image: normal-user:latest
+        ports:
+        - containerPort: 3001
+          name: http
+        - containerPort: 50051
+          name: grpc
+        env:
+        - name: DATABASE_HOST
+          value: "mysql.efiss.tech"
+        - name: DATABASE_PORT
+          value: "3306"
+        - name: DATABASE_USER
+          value: "root"
+        - name: DATABASE_PASSWORD
+          value: "root"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: normal-user
+spec:
+  type: ClusterIP
+  selector:
+    app: normal-user
+  ports:
+  - protocol: TCP
+    port: 3001
+    targetPort: 3001
