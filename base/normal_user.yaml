@@ -24,21 +24,11 @@ spec:
           name: http
         - containerPort: 50051
           name: grpc
-        env:
-        - name: DATABASE_HOST
-          value: "mysql.efiss.tech"
-        - name: DATABASE_PORT
-          value: "3306"
-        - name: DATABASE_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: efiss-secret
-              key: MYSQL_DATABASE_USERNAME
-        - name: DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: efiss-secret
-              key: MYSQL_DATABASE_PASSWORD
+        envFrom:
+        - secretRef:
+            name: mysql-secret
+        - configmapRef:
+            name: mysql-config
         resources:
           limits:
             memory: "128Mi"

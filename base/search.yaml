@@ -25,20 +25,31 @@ spec:
         - containerPort: 50051
           name: grpc
         env:
-        - name: DATABASE_HOST
-          value: "mysql.efiss.tech"
-        - name: DATABASE_PORT
-          value: "3306"
-        - name: DATABASE_USERNAME
+        - name: PRODUCT_DATABASE_HOST
           valueFrom:
             secretKeyRef:
-              name: efiss-secret
-              key: MYSQL_DATABASE_USERNAME
-        - name: DATABASE_PASSWORD
+              name: productdb-secret
+              key: DATABASE_HOST
+        - name: PRODUCT_DATABASE_PORT
           valueFrom:
             secretKeyRef:
-              name: efiss-secret
-              key: MYSQL_DATABASE_PASSWORD
+              name: productdb-secret
+              key: DATABASE_PORT
+        - name: PRODUCT_DATABASE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: productdb-secret
+              key: DATABASE_USERNAME
+        - name: PRODUCT_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: productdb-secret
+              key: DATABASE_PASSWORD
+        - name: PRODUCT_DATABASE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: productdb-secret
+              key: DATABASE_NAME
         resources:
           limits:
             memory: "128Mi"

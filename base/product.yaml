@@ -20,31 +20,13 @@ spec:
         image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/product:latest
         imagePullPolicy: Always
         ports:
+        - containerPort: 3001
+          name: http
         - containerPort: 50051
           name: grpc
-        env:
-        - name: DATABASE_HOST
-          valueFrom:
-            secretKeyRef:
-              name: efiss-secret
-              key: PRODUCT_DATABASE_HOST
-        - name: DATABASE_PORT
-          value: ""
-        - name: DATABASE_NAME
-          valueFrom:
-            secretKeyRef:
-              name: efiss-secret
-              key: PRODUCT_DATABASE_NAME
-        - name: DATABASE_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: efiss-secret
-              key: PRODUCT_DATABASE_USERNAME
-        - name: DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: efiss-secret
-              key: PRODUCT_DATABASE_PASSWORD
+        envFrom:
+        - secretRef:
+            name: productdb-secret
         resources:
           limits:
             memory: "128Mi"
