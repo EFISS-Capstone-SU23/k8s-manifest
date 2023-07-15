@@ -5,6 +5,10 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  tls:
+  - hosts:
+    - efiss.tech
+    secretName: efiss-tls
   rules:
   - host: efiss.tech
     http:
