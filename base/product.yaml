@@ -24,19 +24,27 @@ spec:
           name: grpc
         env:
         - name: DATABASE_HOST
-          value: "mysql.efiss.tech"
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: PRODUCT_DATABASE_HOST
         - name: DATABASE_PORT
-          value: "3306"
+          value: ""
+        - name: DATABASE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: PRODUCT_DATABASE_NAME
         - name: DATABASE_USERNAME
           valueFrom:
             secretKeyRef:
               name: efiss-secret
-              key: MYSQL_DATABASE_USERNAME
+              key: PRODUCT_DATABASE_USERNAME
         - name: DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: efiss-secret
-              key: MYSQL_DATABASE_PASSWORD
+              key: PRODUCT_DATABASE_PASSWORD
         resources:
           limits:
             memory: "128Mi"
