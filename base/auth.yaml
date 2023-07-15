@@ -33,6 +33,8 @@ spec:
             name: auth-secret
         - configmapRef:
             name: app-config
+        - configmapRef:
+            name: mailer-config
         resources:
           limits:
             memory: "128Mi"

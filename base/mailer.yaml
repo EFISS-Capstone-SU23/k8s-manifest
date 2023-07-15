@@ -82,3 +82,13 @@ spec:
           requests:
             memory: "64Mi"
             cpu: "250m"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mailer-config
+  labels:
+    app: mailer-config
+data:
+  MAILER_SERVICE_GRPC_HOST: mailer
+  MAILER_SERVICE_GRPC_PORT: "50051"
