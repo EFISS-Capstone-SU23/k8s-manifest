@@ -27,6 +27,8 @@ spec:
         envFrom:
         - configmapRef:
             name: app-config
+        - configmapRef:
+            name: product-config
         env:
         - name: PRODUCT_DATABASE_HOST
           valueFrom:
