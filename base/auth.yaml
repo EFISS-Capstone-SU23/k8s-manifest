@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
       - name: auth
-        image: auth:latest
+        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/auth:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3001
         env:

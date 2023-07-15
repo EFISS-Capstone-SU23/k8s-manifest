@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
       - name: mailer
-        image: mailer:latest
+        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/mailer:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 50051
           name: grpc
