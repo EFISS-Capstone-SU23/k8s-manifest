@@ -27,6 +27,11 @@ spec:
             name: mail-secret
         - configmapRef:
             name: app-config
+        env:
+        - name: REDIS_HOST
+          value: mailer-redis
+        - name: REDIS_PORT
+          value: "6379"
         resources:
           limits:
             memory: "128Mi"
@@ -47,3 +52,33 @@ spec:
   - protocol: TCP
     port: 50051
     targetPort: 50051
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailer-redis
+  labels:
+    app: mailer-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mailer-redis
+  template:
+    metadata:
+      labels:
+        app: mailer-redis
+    spec:
+      containers:
+      - name: mailer-redis
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
