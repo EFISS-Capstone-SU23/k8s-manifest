@@ -1,2 +1,4 @@
 secret.yaml
 tls-cert.yaml
+cloudflare-certbot.ini
+*.pem
