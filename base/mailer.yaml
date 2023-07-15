@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailer
+  labels:
+    app: mailer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mailer
+  template:
+    metadata:
+      labels:
+        app: mailer
+    spec:
+      containers:
+      - name: mailer
+        image: mailer:latest
+        ports:
+        - containerPort: 50051
+          name: grpc
+        env:
+        - name: SMTP_USERNAME
+          value: "mailer@efiss.tech"
+        - name: SMTP_PASSWORD
+          value: "mailer"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailer
+spec:
+  type: ClusterIP
+  selector:
+    app: mailer
+  ports:
+  - protocol: TCP
+    port: 50051
+    targetPort: 50051
