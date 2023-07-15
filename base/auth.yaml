@@ -21,6 +21,9 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3001
+          name: http
+        - containerPort: 50051
+          name: grpc
         envFrom:
         - secretRef:
             name: mysql-secret

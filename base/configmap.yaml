@@ -4,6 +4,7 @@ metadata:
   name: app-config
 data:
   LISTEN_PORT: "3001"
+  GRPC_LISTEN_PORT: "50051"
   CLIENT_URL: https://efiss.tech
 ---
 apiVersion: v1
