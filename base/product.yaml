@@ -30,7 +30,10 @@ spec:
         - name: DATABASE_USER
           value: "root"
         - name: DATABASE_PASSWORD
-          value: "root"
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: DATABASE_PASSWORD
         resources:
           limits:
             memory: "128Mi"

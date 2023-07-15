@@ -24,9 +24,15 @@ spec:
           name: grpc
         env:
         - name: SMTP_USERNAME
-          value: "mailer@efiss.tech"
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: SMTP_USERNAME
         - name: SMTP_PASSWORD
-          value: "mailer"
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: SMTP_PASSWORD
         resources:
           limits:
             memory: "128Mi"

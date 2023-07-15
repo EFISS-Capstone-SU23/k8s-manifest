@@ -29,7 +29,20 @@ spec:
         - name: DATABASE_USER
           value: "root"
         - name: DATABASE_PASSWORD
-          value: "root"
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: DATABASE_PASSWORD
+        - name: JWT_ACCESS_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: JWT_ACCESS_SECRET
+        - name: JWT_REFRESH_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: efiss-secret
+              key: JWT_REFRESH_SECRET
         resources:
           limits:
             memory: "128Mi"
