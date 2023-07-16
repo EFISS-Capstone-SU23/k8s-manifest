@@ -7,6 +7,11 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+cat <<EOF > ./cloudflare-certbot.ini
+# Cloudflare API credentials used by Certbot
+# dns_cloudflare_api_token = abcxyz
+EOF
+
 if [ ! -f ./cloudflare-certbot.ini ]; then
     echo "Please create cloudflare-certbot.ini"
     exit
@@ -22,11 +27,6 @@ if ! [ -x "$(command -v certbot)" ]; then
     sudo snap set certbot trust-plugin-with-root=ok
     sudo snap install certbot-dns-cloudflare
 fi
-
-cat <<EOF > ./cloudflare-certbot.ini
-# Cloudflare API credentials used by Certbot
-dns_cloudflare_api_token = abcxyz
-EOF
 
 sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials \
     ./cloudflare-certbot.ini -d '*.efiss.tech' -d 'efiss.tech'
