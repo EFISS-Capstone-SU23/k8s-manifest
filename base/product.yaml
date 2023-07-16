@@ -27,7 +27,7 @@ spec:
         envFrom:
         - secretRef:
             name: productdb-secret
-        - configmapRef:
+        - configMapRef:
             name: app-config
         resources:
           limits:

@@ -21,6 +21,7 @@ spec:
     spec:
       containers:
       - image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/efiss-ai:latest
+        imagePullPolicy: Always
         name: ai
         livenessProbe:
           httpGet:
@@ -33,7 +34,6 @@ spec:
           name: http
         resources:
       restartPolicy: Always
-      imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

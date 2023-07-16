@@ -25,9 +25,9 @@ spec:
         - containerPort: 50051
           name: grpc
         envFrom:
-        - configmapRef:
+        - configMapRef:
             name: app-config
-        - configmapRef:
+        - configMapRef:
             name: product-config
         env:
         - name: PRODUCT_DATABASE_HOST

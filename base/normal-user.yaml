@@ -27,9 +27,9 @@ spec:
         envFrom:
         - secretRef:
             name: mysql-secret
-        - configmapRef:
+        - configMapRef:
             name: mysql-config
-        - configmapRef:
+        - configMapRef:
             name: app-config
         resources:
           limits:

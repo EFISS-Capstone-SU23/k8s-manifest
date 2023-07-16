@@ -27,13 +27,13 @@ spec:
         envFrom:
         - secretRef:
             name: mysql-secret
-        - configmapRef:
+        - configMapRef:
             name: mysql-config
         - secretRef:
             name: auth-secret
-        - configmapRef:
+        - configMapRef:
             name: app-config
-        - configmapRef:
+        - configMapRef:
             name: mailer-config
         resources:
           limits:

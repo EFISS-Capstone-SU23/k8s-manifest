@@ -2,3 +2,4 @@
 namespace: development
 resources:
 - ../../base
+- namespace.yaml
