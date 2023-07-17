@@ -1,0 +1,36 @@
+name: Kubernetes Cluster Deployment staging
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+  workflow_dispatch:
+
+jobs:
+
+  setup:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create SSL certs
+      run: 'echo "$TLS_CERT" > base/tls-cert.yaml'
+      shell: bash
+      env:
+        TLS_CERT: ${{ secrets.TLS_CERT }}
+    
+    - name: Create cluster secrets
+      run: 'echo "$secret" > base/secret.yaml'
+      shell: bash
+      env:
+          secret: ${{ secrets.SECRET }}
+    
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Deploy changed microservices
+      run: kubectl apply -k environments/development/
+      shell: bash
