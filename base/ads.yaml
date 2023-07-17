@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ads
+  labels:
+    app: ads
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ads
+  template:
+    metadata:
+      labels:
+        app: ads
+    spec:
+      containers:
+      - name: ads
+        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/ads:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: http
+        - containerPort: 50051
+          name: grpc
+        envFrom:
+        - secretRef:
+            name: mysql-secret
+        - configMapRef:
+            name: mysql-config
+        - configMapRef:
+            name: app-config
+        - configMapRef:
+            name: product-config
+        env:
+        - name: DATABASE_NAME
+          value: efiss_ads
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ads
+spec:
+  type: ClusterIP
+  selector:
+    app: ads
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
