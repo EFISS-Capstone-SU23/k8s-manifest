@@ -28,6 +28,7 @@ jobs:
           secret: ${{ vars.SECRET }}
     
   deploy:
+    needs: setup
     runs-on: self-hosted
 
     steps:
