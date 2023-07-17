@@ -30,12 +30,6 @@ spec:
         - configMapRef:
             name: app-config
         resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
 ---
 apiVersion: v1
 kind: Service
