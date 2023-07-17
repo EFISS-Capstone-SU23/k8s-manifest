@@ -16,20 +16,28 @@ spec:
       - path: /auth
         pathType: Prefix
         backend:
-          serviceName: auth
-          servicePort: 3001
-      - path: /search
-        pathType: Prefix
-        backend:
-          serviceName: search
-          servicePort: 3001
+          service:
+            name: auth
+            port:
+              number: 3000
       - path: /product
         pathType: Prefix
         backend:
-          serviceName: product
-          servicePort: 3001
+          service:
+            name: product
+            port:
+              number: 3000
+      - path: /search
+        pathType: Prefix
+        backend:
+          service:
+            name: search
+            port:
+              number: 3000
       - path: /normal-user
         pathType: Prefix
         backend:
-          serviceName: normal-user
-          servicePort: 3001
+          service:
+            name: normal-user
+            port:
+              number: 3000
