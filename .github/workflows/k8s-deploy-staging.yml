@@ -32,6 +32,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Deploy changed microservices
+    - name: Apply changed kubernetes configs
       run: kubectl apply -k environments/development/
+      shell: bash
+
+    - name: Deploy changed microservices
+      # https://stackoverflow.com/questions/40366192/kubernetes-how-to-make-deployment-to-update-image
+      run: kubectl -n development rollout restart deployment
       shell: bash
