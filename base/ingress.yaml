@@ -8,9 +8,41 @@ spec:
   tls:
   - hosts:
     - efiss.tech
+    - k8s.efiss.tech
     secretName: efiss-tls
   rules:
   - host: efiss.tech
+    http:
+      paths:
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: auth
+            port:
+              number: 3000
+      - path: /product
+        pathType: Prefix
+        backend:
+          service:
+            name: product
+            port:
+              number: 3000
+      - path: /search
+        pathType: Prefix
+        backend:
+          service:
+            name: search
+            port:
+              number: 3000
+      - path: /normal-user
+        pathType: Prefix
+        backend:
+          service:
+            name: normal-user
+            port:
+              number: 3000
+  - host: k8s.efiss.tech
     http:
       paths:
       - path: /auth
