@@ -44,6 +44,13 @@ spec:
             name: normal-user
             port:
               number: 3000
+      - path: /ads
+        pathType: Prefix
+        backend:
+          service:
+            name: ads
+            port:
+              number: 3000
   - host: k8s.efiss.tech
     http:
       paths:
@@ -73,5 +80,12 @@ spec:
         backend:
           service:
             name: normal-user
+            port:
+              number: 3000
+      - path: /ads
+        pathType: Prefix
+        backend:
+          service:
+            name: ads
             port:
               number: 3000
