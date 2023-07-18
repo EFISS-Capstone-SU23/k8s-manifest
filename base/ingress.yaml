@@ -3,8 +3,10 @@ kind: Ingress
 metadata:
   name: efiss-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: ingress-nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - efiss.tech
