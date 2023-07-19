@@ -11,6 +11,7 @@ The Docker Image will be built by the server and pushed to Google Container Regi
 1. Install kubectl
 
 Linux: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
 Windows: https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
 
 2. Get the kubeconfig file from the server
