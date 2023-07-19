@@ -4,7 +4,7 @@ metadata:
   name: efiss-ingress
   annotations:
     kubernetes.io/ingress.class: ingress-nginx
-    # nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   tls:
@@ -16,35 +16,35 @@ spec:
   - host: efiss.tech
     http:
       paths:
-      - path: /auth
+      - path: /auth(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: auth
             port:
               number: 3000
-      - path: /product
+      - path: /product(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: product
             port:
               number: 3000
-      - path: /search
+      - path: /search(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: search
             port:
               number: 3000
-      - path: /normal-user
+      - path: /normal-user(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: normal-user
             port:
               number: 3000
-      - path: /ads
+      - path: /ads(/|$)(.*)
         pathType: Prefix
         backend:
           service:
@@ -54,35 +54,35 @@ spec:
   - host: k8s.efiss.tech
     http:
       paths:
-      - path: /auth
+      - path: /auth(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: auth
             port:
               number: 3000
-      - path: /product
+      - path: /product(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: product
             port:
               number: 3000
-      - path: /search
+      - path: /search(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: search
             port:
               number: 3000
-      - path: /normal-user
+      - path: /normal-user(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: normal-user
             port:
               number: 3000
-      - path: /ads
+      - path: /ads(/|$)(.*)
         pathType: Prefix
         backend:
           service:
