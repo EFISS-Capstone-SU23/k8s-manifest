@@ -106,3 +106,16 @@ spec:
           requests:
             memory: "64Mi"
             cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: search-redis
+spec:
+  type: ClusterIP
+  selector:
+    app: search-redis
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379
