@@ -50,8 +50,10 @@ spec:
     app: normal-user
   ports:
   - protocol: TCP
+    name: http
     port: 3000
     targetPort: 3000
   - protocol: TCP
+    name: grpc
     port: 50051
     targetPort: 50051
