@@ -52,3 +52,11 @@ spec:
   - protocol: TCP
     port: 3000
     targetPort: 3000
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-config
+data:
+  AUTH_SERVICE_GRPC_HOST: "auth"
+  AUTH_SERVICE_GRPC_PORT: "50051"
