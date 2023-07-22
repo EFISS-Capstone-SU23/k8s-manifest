@@ -3,3 +3,4 @@ namespace: development
 resources:
 - ../../base
 - namespace.yaml
+- ingress.yaml
