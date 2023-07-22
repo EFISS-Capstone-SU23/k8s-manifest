@@ -1,0 +1,105 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: efiss-ingress
+  annotations:
+    kubernetes.io/ingress.class: ingress-nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - efiss.tech
+    - k8s.efiss.tech
+    secretName: efiss-tls
+  rules:
+  - host: efiss.tech
+    http:
+      paths:
+      - path: /ai(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ai
+            port:
+              number: 5000
+      - path: /auth(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: auth
+            port:
+              number: 3000
+      - path: /product(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: product
+            port:
+              number: 3000
+      - path: /search(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: search
+            port:
+              number: 3000
+      - path: /normal-user(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: normal-user
+            port:
+              number: 3000
+      - path: /ads(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ads
+            port:
+              number: 3000
+  - host: k8s.efiss.tech
+    http:
+      paths:
+      - path: /auth(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: auth
+            port:
+              number: 3000
+      - path: /product(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: product
+            port:
+              number: 3000
+      - path: /search(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: search
+            port:
+              number: 3000
+      - path: /normal-user(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: normal-user
+            port:
+              number: 3000
+      - path: /ads(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ads
+            port:
+              number: 3000
+      - path: /ai(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ai
+            port:
+              number: 5000
