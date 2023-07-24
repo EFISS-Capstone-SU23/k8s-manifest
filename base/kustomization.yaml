@@ -11,6 +11,7 @@ resources:
 - normal-user.yaml
 - mailer.yaml
 - ai.yaml
+- admin.yaml
 - ads.yaml
 - ingress.yaml
 - secret.yaml
