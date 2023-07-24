@@ -16,6 +16,13 @@ spec:
   - host: efiss.tech
     http:
       paths:
+      - path: /admin(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: admin
+            port:
+              number: 3000
       - path: /auth(/|$)(.*)
         pathType: Prefix
         backend:
@@ -54,6 +61,13 @@ spec:
   - host: k8s.efiss.tech
     http:
       paths:
+      - path: /admin(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: admin
+            port:
+              number: 3000
       - path: /auth(/|$)(.*)
         pathType: Prefix
         backend:

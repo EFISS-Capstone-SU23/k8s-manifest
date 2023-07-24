@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin
+  labels:
+    app: admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin
+  template:
+    metadata:
+      labels:
+        app: admin
+    spec:
+      containers:
+      - name: admin
+        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/admin:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: http
+        envFrom:
+        - secretRef:
+            name: mysql-secret
+        - configMapRef:
+            name: mysql-config
+        - configMapRef:
+            name: app-config
+        - configMapRef:
+            name: auth-config
+        env:
+        - name: DATABASE_NAME
+          value: efiss_admin
+        resources:
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin
+spec:
+  type: ClusterIP
+  selector:
+    app: admin
+  ports:
+  - protocol: TCP
+    name: http
+    port: 3000
+    targetPort: 3000

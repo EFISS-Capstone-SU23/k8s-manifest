@@ -14,6 +14,13 @@ spec:
             name: ai
             port:
               number: 5000
+      - path: /admin(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: admin
+            port:
+              number: 3000
       - path: /auth(/|$)(.*)
         pathType: Prefix
         backend:
@@ -52,6 +59,20 @@ spec:
   - host: k8s.efiss.tech
     http:
       paths:
+      - path: /ai(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ai
+            port:
+              number: 5000
+      - path: /admin(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: admin
+            port:
+              number: 3000
       - path: /auth(/|$)(.*)
         pathType: Prefix
         backend:
@@ -87,10 +108,3 @@ spec:
             name: ads
             port:
               number: 3000
-      - path: /ai(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: ai
-            port:
-              number: 5000
