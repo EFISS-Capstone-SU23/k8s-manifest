@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: search
-        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/search:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/search:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

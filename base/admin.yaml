@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: admin
-        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/admin:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/admin:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

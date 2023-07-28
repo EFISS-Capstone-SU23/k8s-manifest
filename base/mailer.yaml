@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mailer
-        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/mailer:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/mailer:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 50051

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: ads
-        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/ads:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/ads:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

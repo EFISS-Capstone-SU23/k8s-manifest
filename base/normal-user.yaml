@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: normal-user
-        image: asia-southeast1-docker.pkg.dev/even-acumen-386115/efiss/normal-user:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/normal-user:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
