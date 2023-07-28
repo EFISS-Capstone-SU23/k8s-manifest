@@ -32,6 +32,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Make sure ingress-nginx is configured
+      run: kubectl apply -k helm
+      shell: bash
+
     - name: Apply changed kubernetes configs
       run: kubectl apply -k environments/development/
       shell: bash
