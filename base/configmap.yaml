@@ -5,7 +5,7 @@ metadata:
 data:
   LISTEN_PORT: "3000"
   GRPC_LISTEN_PORT: "50051"
-  CLIENT_URL: https://k8s.efiss.tech
+  CLIENT_URL: https://efiss.tech
 ---
 apiVersion: v1
 kind: ConfigMap
