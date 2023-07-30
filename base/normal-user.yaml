@@ -35,6 +35,8 @@ spec:
             name: product-config
         - configMapRef:
             name: auth-config
+        - secretRef:
+            name: normal-user-secret
         env:
         - name: DATABASE_NAME
           value: efiss_normal_user

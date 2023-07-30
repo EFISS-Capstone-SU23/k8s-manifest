@@ -35,6 +35,8 @@ spec:
             name: app-config
         - configMapRef:
             name: mailer-config
+        - secretRef:
+            name: auth-secret
         env:
         - name: DATABASE_NAME
           value: efiss_auth

@@ -31,6 +31,8 @@ spec:
             name: app-config
         - configMapRef:
             name: auth-config
+        - secretRef:
+            name: admin-secret
         env:
         - name: DATABASE_NAME
           value: efiss_admin

@@ -33,6 +33,8 @@ spec:
             name: app-config
         - configMapRef:
             name: product-config
+        - secretRef:
+            name: ads-secret
         env:
         - name: DATABASE_NAME
           value: efiss_ads
