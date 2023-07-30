@@ -35,6 +35,8 @@ spec:
             name: app-config
         - configMapRef:
             name: product-config
+        - configMapRef:
+            name: ai-config
         env:
         - name: PRODUCT_DATABASE_HOST
           valueFrom:
