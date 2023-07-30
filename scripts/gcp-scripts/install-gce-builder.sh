@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/gcp-scripts/install-gce-builder.sh | bash
+# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/install-gce-builder.sh | bash
 
 if ! command -v make &> /dev/null
 then

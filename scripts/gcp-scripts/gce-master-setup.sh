@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/gcp-scripts/install-master-kube-node.sh | "GithubActionToken"
+# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/install-master-kube-node.sh | bash -s "GithubActionToken"
 
 # check if token is provided
 if [ -z "$1" ]
