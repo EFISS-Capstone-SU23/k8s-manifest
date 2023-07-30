@@ -53,5 +53,5 @@ kind: ConfigMap
 metadata:
   name: ai-config
 data:
-  AI_MODEL_BASE_API: "http://ai"
+  AI_MODEL_BASE_API: "http://ai:5000"
   AI_SEARCHER_ROUTE: "/predictions/image-retrieval-v1.0"
