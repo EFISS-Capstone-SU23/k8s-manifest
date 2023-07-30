@@ -25,12 +25,12 @@ sudo chown $(id -u):$(id -g) ~/.kube/config  # optional
 3. Get all running pods (running containers)
 
 ```bash
-kubectl -n development get pods
+kubectl -n dev get pods
 ```
 
 4. Get logs of a service
 
 ```bash
-kubectl -n development logs -f --tail 10000 -l app=auth
-kubectl -n development logs -f --tail 10000 -l app=product
+kubectl -n dev logs -f --tail 10000 -l app=auth
+kubectl -n dev logs -f --tail 10000 -l app=product
 ```
