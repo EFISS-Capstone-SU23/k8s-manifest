@@ -42,5 +42,5 @@ jobs:
 
     - name: Deploy changed microservices
       # https://stackoverflow.com/questions/40366192/kubernetes-how-to-make-deployment-to-update-image
-      run: kubectl -n development rollout restart deployment
+      run: kubectl -n dev rollout restart deployment
       shell: bash
