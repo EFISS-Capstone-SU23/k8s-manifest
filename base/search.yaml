@@ -64,10 +64,15 @@ spec:
               name: productdb-secret
               key: DATABASE_NAME
         - name: REDIS_HOST
-          value: search-redis
+          value: localhost
         - name: REDIS_PORT
           value: "6379"
         resources:
+      - name: search-redis
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis
 ---
 apiVersion: v1
 kind: Service
@@ -86,46 +91,3 @@ spec:
     name: grpc
     port: 50051
     targetPort: 50051
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: search-redis
-  labels:
-    app: search-redis
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: search-redis
-  template:
-    metadata:
-      labels:
-        app: search-redis
-    spec:
-      containers:
-      - name: search-redis
-        image: redis
-        ports:
-        - containerPort: 6379
-          name: redis
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-          requests:
-            memory: "64Mi"
-            cpu: "100m"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: search-redis
-spec:
-  type: ClusterIP
-  selector:
-    app: search-redis
-  ports:
-  - protocol: TCP
-    port: 6379
-    targetPort: 6379
