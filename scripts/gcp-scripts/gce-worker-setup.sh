@@ -2,6 +2,12 @@
 # curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/gce-worker-setup.sh | bash -s "token"
 set -x
 
+if command -v git &> /dev/null
+then
+    echo "GCE worker is installed successfully!"
+    exit 0
+fi
+
 # Add SSH keys to the instance
 cat <<EOF >> ~/.ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCC4dW+9GhTPZsNazMaTOE0SaLJGOxVm0HHMrx9h0YUUDhQgYsvrSN+sXJ5ZSxuFM/4Q7l06WYT4B/kabJlCwSxswRWq58El/epSgVVY7Z++sGBOjSnXUINFXLUv1K0wbE7xXRxyv3EPU6qvWaFZEAliNHNVR/jcKhfwUtHvEZf8ZVtj+uefBsMstJAuiNAEaVjThyvuly+huO6cN+CPML8zV9bP3tYORPLQalCvW7IM/b5MIRp4ilI2UeEbLwT2VQQ/ZsaEg6DSejsgmwCXnZ5rj3QMVRIn6iMAOcsi7inssS8RDI9O54xyG42LTxsJo4O8CJ2G4eBl3f5yQjxPBz7 thaiduongme
@@ -92,4 +98,4 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo kubeadm join efiss.tech:6443 --token "$token" \
-        --discovery-token-ca-cert-hash sha256:ab43c42b2e7bb829735d6a619ed35bbe59174935f8fde2f323ff64f2336aa2a7
+        --discovery-token-ca-cert-hash sha256:8c6a2132710c3ce85842c7cb5811a1fddec99c405a956e9bc94fcb5183e989a7 \
