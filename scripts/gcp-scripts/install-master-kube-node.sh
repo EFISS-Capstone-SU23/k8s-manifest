@@ -70,7 +70,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 sudo kubeadm config images pull
 
 echo Installing Github Action runner
-curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/gcp-scripts/github-action-worker.sh | bash -s "$token"
+curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/github-action-worker.sh | bash -s "$token"
 
 echo "Please run init-kube-network.sh after reboot"
 sudo reboot
