@@ -35,6 +35,8 @@ spec:
             name: productdb-secret
         - configMapRef:
             name: app-config
+        - configMapRef:
+            name: auth-config
         resources:
 ---
 apiVersion: v1
