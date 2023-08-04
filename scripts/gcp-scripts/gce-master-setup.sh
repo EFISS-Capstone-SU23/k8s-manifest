@@ -52,6 +52,6 @@ cd ~/
 if ! [ -z "$1" ]
 then
     echo "Installing master node..."
-    curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/gcp-scripts/install-master-kube-node.sh | bash -s $1
+    curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/install-master-kube-node.sh | bash -s $1
 fi
 echo Done!
