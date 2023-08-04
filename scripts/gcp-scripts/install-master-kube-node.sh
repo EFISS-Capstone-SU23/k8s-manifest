@@ -66,11 +66,18 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
+# install helm
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm -y
+
 # then only the master:
 sudo kubeadm config images pull
 
 echo Installing Github Action runner
-curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/gcp-scripts/github-action-worker.sh | bash -s "$token"
+curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/github-action-worker.sh | bash -s "$token"
 
 echo "Please run init-kube-network.sh after reboot"
 sudo reboot

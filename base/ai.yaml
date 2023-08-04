@@ -33,6 +33,9 @@ spec:
         - containerPort: 5000
           name: http
         resources:
+          requests:
+            cpu: 1500m
+            memory: 5Gi
       restartPolicy: Always
 ---
 apiVersion: v1
