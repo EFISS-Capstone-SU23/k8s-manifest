@@ -1,5 +1,5 @@
 #!/bin/bash
-# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/gce-worker-setup.sh | bash -s "token"
+# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/gce-worker-setup.sh | bash -s "token" "discover-token-ca-cert-hash"
 set -x
 
 if command -v git &> /dev/null
@@ -104,5 +104,12 @@ else
     token=$1
 fi
 
+if [ -z "$2" ] # check if discovery-token-ca-cert-hash is provided
+then
+    exit 0
+else
+    discovery_token_ca_cert_hash=$2
+fi
+
 sudo kubeadm join efiss.tech:6443 --token "$token" \
-        --discovery-token-ca-cert-hash sha256:8c6a2132710c3ce85842c7cb5811a1fddec99c405a956e9bc94fcb5183e989a7
+        --discovery-token-ca-cert-hash "$discovery_token_ca_cert_hash"
