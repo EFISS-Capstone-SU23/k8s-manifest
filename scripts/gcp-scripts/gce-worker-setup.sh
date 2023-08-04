@@ -98,4 +98,4 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo kubeadm join efiss.tech:6443 --token "$token" \
-        --discovery-token-ca-cert-hash sha256:8c6a2132710c3ce85842c7cb5811a1fddec99c405a956e9bc94fcb5183e989a7 \
+        --discovery-token-ca-cert-hash sha256:8c6a2132710c3ce85842c7cb5811a1fddec99c405a956e9bc94fcb5183e989a7
