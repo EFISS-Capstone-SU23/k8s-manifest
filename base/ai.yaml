@@ -35,7 +35,7 @@ spec:
         resources:
           requests:
             cpu: 1500m
-            memory: 5Gi
+            memory: 3Gi
       restartPolicy: Always
 ---
 apiVersion: v1
