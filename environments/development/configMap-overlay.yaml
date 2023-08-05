@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-config
+data:
+  AI_MODEL_BASE_API: "http://dev-ai:5000"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-config
+data:
+  AUTH_SERVICE_GRPC_HOST: "dev-auth"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: product-config
+data:
+  PRODUCT_SERVICE_GRPC_HOST: "dev-product"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: auth-config
+data:
+  AUTH_SERVICE_GRPC_HOST: "dev-auth"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mailer-config
+data:
+  MAILER_SERVICE_GRPC_HOST: "dev-mailer"

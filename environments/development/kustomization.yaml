@@ -12,3 +12,6 @@ patches:
     version: v1
     kind: Ingress
     name: efiss-ingress
+
+patchesStrategicMerge:
+- configMap-overlay.yaml
