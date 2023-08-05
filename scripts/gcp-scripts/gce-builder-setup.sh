@@ -57,3 +57,5 @@ fi
 ./config.sh --url https://github.com/EFISS-Capstone-SU23/EFISS-Backend --token "$token" --unattended
 
 sudo ./svc.sh install && sudo ./svc.sh start
+
+sudo reboot
