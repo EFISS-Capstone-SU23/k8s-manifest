@@ -1,5 +1,4 @@
 namespace: prod
-namePrefix: prod-
 resources:
 - ../../base
 patches:

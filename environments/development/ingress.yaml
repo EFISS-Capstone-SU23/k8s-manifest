@@ -18,3 +18,9 @@
         name: ai
         port:
           number: 5000
+- op: replace
+  path: /spec/rules/0/host
+  value: dev.efiss.tech
+- op: replace
+  path: /spec/rules/1/host
+  value: dev-k8s.efiss.tech
