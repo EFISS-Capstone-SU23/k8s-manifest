@@ -10,3 +10,4 @@ resources:
 # milvus
 - https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.yaml
 - https://raw.githubusercontent.com/milvus-io/milvus-operator/main/deploy/manifests/deployment.yaml
+# https://raw.githubusercontent.com/milvus-io/milvus-operator/main/config/samples/milvus_cluster_minimum.yaml
