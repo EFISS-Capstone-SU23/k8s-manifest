@@ -9,7 +9,7 @@ else
     token=$1
 fi
 
-sudo su - thaiminhpv
+sudo su thaiminhpv
 
 mkdir -p ~/devops/actions-runner/k8s-manifest && cd ~/devops/actions-runner/k8s-manifest
 curl -o actions-runner-linux-x64-2.307.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.307.1/actions-runner-linux-x64-2.307.1.tar.gz
