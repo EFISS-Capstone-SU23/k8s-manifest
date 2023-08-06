@@ -8,6 +8,8 @@ then
     exit 0
 fi
 
+sudo su thaiminhpv
+
 # Add SSH keys to the instance
 cat <<EOF >> ~/.ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCC4dW+9GhTPZsNazMaTOE0SaLJGOxVm0HHMrx9h0YUUDhQgYsvrSN+sXJ5ZSxuFM/4Q7l06WYT4B/kabJlCwSxswRWq58El/epSgVVY7Z++sGBOjSnXUINFXLUv1K0wbE7xXRxyv3EPU6qvWaFZEAliNHNVR/jcKhfwUtHvEZf8ZVtj+uefBsMstJAuiNAEaVjThyvuly+huO6cN+CPML8zV9bP3tYORPLQalCvW7IM/b5MIRp4ilI2UeEbLwT2VQQ/ZsaEg6DSejsgmwCXnZ5rj3QMVRIn6iMAOcsi7inssS8RDI9O54xyG42LTxsJo4O8CJ2G4eBl3f5yQjxPBz7 thaiduongme
