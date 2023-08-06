@@ -1,4 +1,4 @@
-name: Kubernetes Cluster Deployment staging
+name: Kubernetes Cluster Deployment production
 
 on:
   workflow_dispatch:
