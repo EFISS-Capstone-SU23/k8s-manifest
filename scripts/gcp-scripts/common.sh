@@ -31,8 +31,4 @@ EOF
 sudo apt update
 sudo apt install git curl -y
 
-cd $CURRENT_USER_DIR/
-git clone --depth 1 https://github.com/junegunn/fzf.git $CURRENT_USER_DIR/.fzf
-cd $CURRENT_USER_DIR/.fzf/
-sudo /bin/su -c "bash $CURRENT_USER_DIR/.fzf/install --all" - $CURRENT_USER
-cd $CURRENT_USER_DIR/
+sudo /bin/su -c "git clone --depth 1 https://github.com/junegunn/fzf.git $CURRENT_USER_DIR/.fzf && bash $CURRENT_USER_DIR/.fzf/install --all" - $CURRENT_USER
