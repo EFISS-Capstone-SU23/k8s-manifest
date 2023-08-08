@@ -19,4 +19,4 @@ tar xzf ./actions-runner-linux-x64-2.307.1.tar.gz
 
 sudo /bin/su -c "$CURRENT_USER_DIR/devops/actions-runner/k8s-manifest/config.sh --url https://github.com/EFISS-Capstone-SU23/k8s-manifest --token $token --unattended" - $CURRENT_USER
 
-sudo ./svc.sh install && sudo ./svc.sh start
+sudo $CURRENT_USER_DIR/devops/actions-runner/k8s-manifest/svc.sh install && sudo $CURRENT_USER_DIR/devops/actions-runner/k8s-manifest/svc.sh start
