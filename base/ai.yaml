@@ -29,12 +29,18 @@ spec:
             port: 5000
           initialDelaySeconds: 900
           timeoutSeconds: 120
+        env:
+        - name: MILVUS_PORT
+          value: "19530"
+        envFrom:
+        - secretRef:
+            name: ai-secret
         ports:
         - containerPort: 5000
           name: http
         resources:
           requests:
-            cpu: 1500m
+            cpu: 2000m
             memory: 3Gi
       restartPolicy: Always
 ---
