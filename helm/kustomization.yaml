@@ -6,8 +6,3 @@ resources:
 - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
 - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 - https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
-
-# milvus
-- https://github.com/jetstack/cert-manager/releases/download/v1.5.3/cert-manager.yaml
-- https://raw.githubusercontent.com/milvus-io/milvus-operator/main/deploy/manifests/deployment.yaml
-# https://raw.githubusercontent.com/milvus-io/milvus-operator/main/config/samples/milvus_cluster_minimum.yaml
