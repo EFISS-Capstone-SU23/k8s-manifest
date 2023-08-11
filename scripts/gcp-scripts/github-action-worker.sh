@@ -17,6 +17,9 @@ curl -o actions-runner-linux-x64-2.307.1.tar.gz -L https://github.com/actions/ru
 echo "038c9e98b3912c5fd6d0b277f2e4266b2a10accc1ff8ff981b9971a8e76b5441  actions-runner-linux-x64-2.307.1.tar.gz" | shasum -a 256 -c
 tar xzf ./actions-runner-linux-x64-2.307.1.tar.gz
 
+sudo chown -R $CURRENT_USER:$CURRENT_USER $CURRENT_USER_DIR/devops/actions-runner/k8s-manifest
+sudo chmod -R 777 $CURRENT_USER_DIR/devops/actions-runner/k8s-manifest
+
 sudo /bin/su -c "$CURRENT_USER_DIR/devops/actions-runner/k8s-manifest/config.sh --url https://github.com/EFISS-Capstone-SU23/k8s-manifest --token $token --unattended" - $CURRENT_USER
 
 sudo $CURRENT_USER_DIR/devops/actions-runner/k8s-manifest/svc.sh install && sudo $CURRENT_USER_DIR/devops/actions-runner/k8s-manifest/svc.sh start
