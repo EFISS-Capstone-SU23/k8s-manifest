@@ -1,8 +1,8 @@
 #!/bin/bash
 set -x
 
-sudo kubeadm init --control-plane-endpoint efiss.tech \
-    --cri-socket=unix:///var/run/crio/crio.sock
+sudo kubeadm init --control-plane-endpoint 10.66.66.1 --apiserver-advertise-address 10.66.66.1 \
+    --cri-socket=unix:///var/run/crio/crio.sock --pod-network-cidr 192.168.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
