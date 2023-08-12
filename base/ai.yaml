@@ -40,8 +40,8 @@ spec:
           name: http
         resources:
           requests:
-            cpu: 2000m
-            memory: 3Gi
+            cpu: 100m
+            memory: 1Gi
       restartPolicy: Always
 ---
 apiVersion: v1
