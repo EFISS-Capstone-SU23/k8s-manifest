@@ -17,6 +17,8 @@ proxy=false                                        # Set the proxy to true or fa
 ###########################################
 ip=$(curl -s https://api.ipify.org || curl -s https://ipv4.icanhazip.com/)
 
+echo "IP: ${ip}"
+
 if [ "${ip}" == "" ]; then 
   logger -s "DDNS Updater: No public IP found"
   exit 1
