@@ -5,4 +5,4 @@ metadata:
 resources:
 - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
 - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-- https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+# - https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
