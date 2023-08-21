@@ -1,7 +1,8 @@
 #!/bin/bash
+# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/init-kube-network.sh | bash
 set -x
 
-sudo kubeadm init --control-plane-endpoint 10.66.66.1 --apiserver-advertise-address 10.66.66.1 \
+sudo kubeadm init --control-plane-endpoint $(curl https://ipinfo.io/ip) --apiserver-advertise-address $(curl https://ipinfo.io/ip) \
     --cri-socket=unix:///var/run/crio/crio.sock --pod-network-cidr 192.168.0.0/16
 
 mkdir -p $HOME/.kube
