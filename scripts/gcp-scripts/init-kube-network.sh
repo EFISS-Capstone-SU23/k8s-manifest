@@ -1,12 +1,16 @@
 #!/bin/bash
 set -x
 
-sudo kubeadm init --control-plane-endpoint efiss.tech \
-    --cri-socket=unix:///var/run/crio/crio.sock
+sudo kubeadm init --control-plane-endpoint 10.66.66.1 --apiserver-advertise-address 10.66.66.1 \
+    --cri-socket=unix:///var/run/crio/crio.sock --pod-network-cidr 192.168.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+# helm upgrade --install ingress-nginx ingress-nginx \
+#   --repo https://kubernetes.github.io/ingress-nginx \
+#   --namespace ingress-nginx --create-namespace
 
 # master as worker
 # kubectl taint nodes efiss node-role.kubernetes.io/master-
@@ -18,3 +22,10 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 # kubeadm token create --print-join-command
+
+# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
+# curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
+# kubectl create -f custom-resources.yaml
+# watch kubectl get pods -n calico-system
+
+

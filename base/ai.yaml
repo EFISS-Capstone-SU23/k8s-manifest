@@ -20,19 +20,28 @@ spec:
         app: ai
     spec:
       containers:
-      - image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/ai:latest
+      - image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/ai:latest
         imagePullPolicy: Always
         name: ai
         livenessProbe:
           httpGet:
             path: /ping
             port: 5000
-          initialDelaySeconds: 180
+          initialDelaySeconds: 900
           timeoutSeconds: 120
+        env:
+        - name: MILVUS_PORT
+          value: "19530"
+        envFrom:
+        - secretRef:
+            name: ai-secret
         ports:
         - containerPort: 5000
           name: http
         resources:
+          requests:
+            cpu: 100m
+            memory: 1Gi
       restartPolicy: Always
 ---
 apiVersion: v1
