@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: auth
-        image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/auth:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/auth:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

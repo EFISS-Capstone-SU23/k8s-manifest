@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: product
-        image: asia-southeast1-docker.pkg.dev/efiss-394203/efiss/product:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/product:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
