@@ -17,7 +17,7 @@ spec:
     secretName: efiss-tls
   rules:
   - host: efiss.tech
-    http:
+    http: &backend
       paths:
       - path: /admin(/|$)(.*)
         pathType: Prefix
@@ -62,47 +62,5 @@ spec:
             port:
               number: 3000
   - host: k8s.efiss.tech
-    http:
-      paths:
-      - path: /admin(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: admin
-            port:
-              number: 3000
-      - path: /auth(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: auth
-            port:
-              number: 3000
-      - path: /product(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: product
-            port:
-              number: 3000
-      - path: /search(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: search
-            port:
-              number: 3000
-      - path: /normal-user(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: normal-user
-            port:
-              number: 3000
-      - path: /ads(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: ads
-            port:
-              number: 3000
+    http: *backend
+  - http: *backend
