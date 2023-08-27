@@ -16,3 +16,4 @@ resources:
 - ingress.yaml
 - secret.yaml
 - tls-cert.yaml
+- data-manager-portal.yaml
