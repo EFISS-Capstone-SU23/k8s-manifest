@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: data-manager-portal
-        image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/data-manager-fe:latest
+        image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/local-data-manager-portal:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
