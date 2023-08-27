@@ -16,6 +16,16 @@ spec:
     - k8s.efiss.tech
     secretName: efiss-tls
   rules:
+  - host: data-manager.efiss.tech
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: data-manager-portal
+            port:
+              number: 80
   - host: efiss.tech
     http: &backend
       paths:

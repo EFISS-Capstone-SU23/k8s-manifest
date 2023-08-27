@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-manager-portal
+  labels:
+    app: data-manager-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-manager-portal
+  template:
+    metadata:
+      labels:
+        app: data-manager-portal
+    spec:
+      containers:
+      - name: data-manager-portal
+        image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/data-manager-fe:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+        resources:
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-manager-portal
+spec:
+  type: ClusterIP
+  selector:
+    app: data-manager-portal
+  ports:
+  - protocol: TCP
+    name: http
+    port: 80
+    targetPort: 80
