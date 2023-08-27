@@ -1,0 +1,70 @@
+version: '3.9'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: on-failure
+    # environment:
+      # MONGO_INITDB_ROOT_USERNAME: efiss
+      # MONGO_INITDB_DATABASE: efiss
+    # env_file:
+    #   - .env
+    ports:
+      - 0.0.0.0:27017:27017
+
+  mongo-express:
+    image: mongo-express
+    restart: on-failure
+    ports:
+      - 0.0.0.0:8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: efiss
+      ME_CONFIG_MONGODB_URL: mongodb://efiss:anhViet_deptrai@mongo:27017/
+    env_file:
+      - .env
+
+  auth_db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 0.0.0.0:3307:3306
+    env_file:
+      - .env
+
+  ads_db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 0.0.0.0:3308:3306
+    env_file:
+      - .env
+
+  admin_db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 0.0.0.0:3309:3306
+    env_file:
+      - .env
+
+
+  normal_db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 0.0.0.0:3310:3306
+    env_file:
+      - .env
