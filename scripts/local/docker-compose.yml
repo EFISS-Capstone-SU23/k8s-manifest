@@ -75,4 +75,4 @@ services:
     ports:
       - "9999:80"
     volumes:
-      - ${THUMBNAIL_LOCATION}:/usr/share/nginx/html/data/product_images:ro 
+      - ${THUMBNAIL_LOCATION}:/usr/share/nginx/html/efiss/data/product_images:ro 
