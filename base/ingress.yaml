@@ -10,11 +10,11 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - efiss.tech
-    - k8s.efiss.tech
-    secretName: efiss-tls
+  # tls:
+  # - hosts:
+  #   - efiss.tech
+  #   - k8s.efiss.tech
+  #   secretName: efiss-tls
   rules:
   - host: efiss.tech
     http: &backend
