@@ -68,3 +68,11 @@ services:
       - 0.0.0.0:3310:3306
     env_file:
       - .env
+
+  nginx:
+    image: nginx:latest
+    container_name: efiss_host_thumbnail
+    ports:
+      - "9999:80"
+    volumes:
+      - ${THUMBNAIL_LOCATION}:/usr/share/nginx/html:ro 
