@@ -18,7 +18,7 @@ spec:
       containers:
       - name: normal-user
         image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/normal-user:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         livenessProbe:
           httpGet:
             path: /health

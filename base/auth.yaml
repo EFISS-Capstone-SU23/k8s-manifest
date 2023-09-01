@@ -18,7 +18,7 @@ spec:
       containers:
       - name: auth
         image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/auth:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         livenessProbe:
           httpGet:
             path: /health

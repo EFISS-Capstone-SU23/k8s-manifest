@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/ai:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         name: ai
         livenessProbe:
           httpGet:

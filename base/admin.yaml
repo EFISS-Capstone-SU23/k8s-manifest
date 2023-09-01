@@ -18,7 +18,7 @@ spec:
       containers:
       - name: admin
         image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/admin:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         livenessProbe:
           httpGet:
             path: /health

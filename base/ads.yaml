@@ -18,7 +18,7 @@ spec:
       containers:
       - name: ads
         image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/ads:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         livenessProbe:
           httpGet:
             path: /health

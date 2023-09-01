@@ -18,7 +18,7 @@ spec:
       containers:
       - name: product
         image: asia-southeast1-docker.pkg.dev/efiss-duong/efiss/product:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         livenessProbe:
           httpGet:
             path: /health
