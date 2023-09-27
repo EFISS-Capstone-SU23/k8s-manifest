@@ -20,7 +20,7 @@ spec:
         app: ai
     spec:
       containers:
-      - image: asia-southeast1-docker.pkg.dev/efiss-startup/efiss/ai:latest
+      - image: thaiminhpv/efiss-ai:latest
         imagePullPolicy: Always
         name: ai
         livenessProbe:
