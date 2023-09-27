@@ -27,7 +27,7 @@ else
     token=$1
 fi
 
-suod /bin/su -c "$CURRENT_USER_DIR/devops/actions-runner/EFISS-Backend/config.sh --url https://github.com/EFISS-Capstone-SU23/EFISS-Backend --token $token --unattended" - $CURRENT_USER
+sudo /bin/su -c "$CURRENT_USER_DIR/devops/actions-runner/EFISS-Backend/config.sh --url https://github.com/EFISS-Capstone-SU23/EFISS-Backend --token $token --unattended" - $CURRENT_USER
 
 sudo ./svc.sh install && sudo ./svc.sh start
 
