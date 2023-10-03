@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: efiss_datastore
+    restart: always
+    ports:
+      - "58482:80"
+    volumes:
+      - ${PRODUCT_IMAGES_LOCATION}:/usr/share/nginx/html/efiss/data/product_images:ro 
+      - ${THUMBNAIL_LOCATION}:/usr/share/nginx/html/efiss/data/thumbnail:ro 
