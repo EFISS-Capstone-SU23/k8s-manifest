@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: normal-user
-        image: asia-southeast1-docker.pkg.dev/efiss-startup/efiss/normal-user:latest
+        image: asia-southeast1-docker.pkg.dev/impactful-bee-400715/efiss/normal-user:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

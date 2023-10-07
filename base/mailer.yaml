@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mailer
-        image: asia-southeast1-docker.pkg.dev/efiss-startup/efiss/mailer:latest
+        image: asia-southeast1-docker.pkg.dev/impactful-bee-400715/efiss/mailer:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 50051

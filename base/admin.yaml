@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: admin
-        image: asia-southeast1-docker.pkg.dev/efiss-startup/efiss/admin:latest
+        image: asia-southeast1-docker.pkg.dev/impactful-bee-400715/efiss/admin:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

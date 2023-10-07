@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: data-manager-portal
-        image: asia-southeast1-docker.pkg.dev/efiss-startup/efiss/local-data-manager-portal:latest
+        image: asia-southeast1-docker.pkg.dev/impactful-bee-400715/efiss/local-data-manager-portal:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80

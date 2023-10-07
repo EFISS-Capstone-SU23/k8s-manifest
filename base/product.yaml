@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: product
-        image: asia-southeast1-docker.pkg.dev/efiss-startup/efiss/product:latest
+        image: asia-southeast1-docker.pkg.dev/impactful-bee-400715/efiss/product:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
