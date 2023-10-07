@@ -86,9 +86,9 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-kubectl taint nodes master-minhpvt-0 node-role.kubernetes.io/master-
-kubectl taint node master-minhpvt-0 node-role.kubernetes.io/master:NoSchedule-
-kubectl taint node master-minhpvt-0 node-role.kubernetes.io/control-plane:NoSchedule-
+kubectl taint nodes mono-minhpvt-0 node-role.kubernetes.io/master-
+kubectl taint node mono-minhpvt-0 node-role.kubernetes.io/master:NoSchedule-
+kubectl taint node mono-minhpvt-0 node-role.kubernetes.io/control-plane:NoSchedule-
 
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
 curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
