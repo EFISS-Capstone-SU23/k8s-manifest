@@ -1,15 +1,6 @@
 #!/bin/bash
 set -x
 
-# check if token is provided
-if [ -z "$1" ]
-then
-    read -sp 'Github Action token: ' token
-else
-    token=$1
-fi
-
-
 # Install kubectl 
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl
@@ -77,7 +68,7 @@ sudo apt-get install helm -y
 sudo kubeadm config images pull
 
 echo Installing Github Action runner
-curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/github-action-worker.sh | bash -s "$token"
+# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/github-action-worker.sh | bash -s "$token"
 
 echo "Please run init-kube-network.sh after reboot"
 sudo reboot

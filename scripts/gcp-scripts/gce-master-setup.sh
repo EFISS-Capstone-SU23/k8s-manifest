@@ -1,14 +1,6 @@
 #!/bin/bash
 
-# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/gce-master-setup.sh | bash -s "GithubActionToken"
-
-# check if token is provided
-if [ -z "$1" ]
-then
-    read -sp 'Github Action token: ' token
-else
-    token=$1
-fi
+# curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/gce-master-setup.sh | bash
 
 if command -v tmux &> /dev/null
 then
@@ -20,9 +12,6 @@ curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/
 
 sudo apt install tmux htop -y
 
-if ! [ -z "$1" ]
-then
-    echo "Installing master node..."
-    curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/install-master-kube-node.sh | bash -s $1
-fi
+echo "Installing master node..."
+curl -s https://raw.githubusercontent.com/EFISS-Capstone-SU23/k8s-manifest/main/scripts/gcp-scripts/install-master-kube-node.sh | bash -s $1
 echo Done!
