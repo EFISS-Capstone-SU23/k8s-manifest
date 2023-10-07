@@ -79,19 +79,21 @@ sudo apt-get install helm -y
 # then only the master:
 sudo kubeadm config images pull
 
-sudo kubeadm init --control-plane-endpoint $(curl https://ipinfo.io/ip) --apiserver-advertise-address $(curl https://ipinfo.io/ip) \
-    --cri-socket=unix:///var/run/crio/crio.sock --pod-network-cidr 192.168.0.0/16
+sudo reboot
 
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# sudo kubeadm init --control-plane-endpoint $(curl https://ipinfo.io/ip) --apiserver-advertise-address $(curl https://ipinfo.io/ip) \
+#     --cri-socket=unix:///var/run/crio/crio.sock --pod-network-cidr 192.168.0.0/16
 
-kubectl taint nodes mono-minhpvt-0 node-role.kubernetes.io/master-
-kubectl taint node mono-minhpvt-0 node-role.kubernetes.io/master:NoSchedule-
-kubectl taint node mono-minhpvt-0 node-role.kubernetes.io/control-plane:NoSchedule-
+# mkdir -p $HOME/.kube
+# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+# sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
-kubectl create -f custom-resources.yaml
+# kubectl taint nodes mono-minhpvt-0 node-role.kubernetes.io/master-
+# kubectl taint node mono-minhpvt-0 node-role.kubernetes.io/master:NoSchedule-
+# kubectl taint node mono-minhpvt-0 node-role.kubernetes.io/control-plane:NoSchedule-
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
+# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
+# curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
+# kubectl create -f custom-resources.yaml
+
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
