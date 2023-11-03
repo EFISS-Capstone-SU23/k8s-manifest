@@ -8,5 +8,6 @@ services:
     ports:
       - "58482:80"
     volumes:
+      - /media/thaiminhpv/DataStorage/EFISS/:/usr/share/nginx/html/efiss:ro
       - ${PRODUCT_IMAGES_LOCATION}:/usr/share/nginx/html/efiss/data/product_images:ro 
       - ${THUMBNAIL_LOCATION}:/usr/share/nginx/html/efiss/data/thumbnail:ro 
